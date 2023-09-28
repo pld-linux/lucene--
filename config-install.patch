@@ -1,0 +1,34 @@
+--- LucenePlusPlus-rel_3.0.8/src/config/core/CMakeLists.txt~	2020-12-29 13:10:43.000000000 +0100
++++ LucenePlusPlus-rel_3.0.8/src/config/core/CMakeLists.txt	2023-09-29 00:02:15.841206794 +0200
+@@ -9,7 +9,7 @@
+   install(
+     FILES
+       "${CMAKE_CURRENT_BINARY_DIR}/liblucene++.pc"
+-    DESTINATION "include/pkgconfig")
++    DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
+ endif()
+ 
+ 
+@@ -30,4 +30,4 @@
+   FILES
+     "${CMAKE_CURRENT_BINARY_DIR}/liblucene++Config.cmake"
+     "${CMAKE_CURRENT_BINARY_DIR}/liblucene++ConfigVersion.cmake"
+-  DESTINATION "include/cmake")
++  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake")
+--- LucenePlusPlus-rel_3.0.8/src/config/contrib/CMakeLists.txt~	2020-12-29 13:10:43.000000000 +0100
++++ LucenePlusPlus-rel_3.0.8/src/config/contrib/CMakeLists.txt	2023-09-29 00:02:56.495779531 +0200
+@@ -9,7 +9,7 @@
+   install(
+     FILES
+       "${CMAKE_CURRENT_BINARY_DIR}/liblucene++-contrib.pc"
+-    DESTINATION "include/pkgconfig")
++    DESTINATION "${CMAKE_INSTALL_LIBDIR}/pkgconfig")
+ endif()
+ 
+ 
+@@ -30,4 +30,4 @@
+   FILES
+     "${CMAKE_CURRENT_BINARY_DIR}/liblucene++-contribConfig.cmake"
+     "${CMAKE_CURRENT_BINARY_DIR}/liblucene++-contribConfigVersion.cmake"
+-  DESTINATION "include/cmake")
++  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake")
