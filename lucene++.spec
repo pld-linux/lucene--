@@ -1,7 +1,7 @@
 Summary:	A high-performance, full-featured text search engine written in C++
 Name:		lucene++
 Version:	3.0.8
-Release:	2`
+Release:	2
 License:	Apache v2.0 or LGPLv3+
 Group:		Libraries
 Source0:	https://github.com/luceneplusplus/LucenePlusPlus/archive/rel_%{version}/%{name}-%{version}.tar.gz
