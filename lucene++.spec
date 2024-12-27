@@ -6,7 +6,7 @@ License:	Apache v2.0 or LGPLv3+
 Group:		Libraries
 Source0:	https://github.com/luceneplusplus/LucenePlusPlus/archive/rel_%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	33da6751de47523e22e7a1beebd78c29
-Patch4:		boost-1.85.patch
+Patch0:		boost-1.85.patch
 URL:		https://github.com/luceneplusplus/LucenePlusPlus
 BuildRequires:	boost-devel
 BuildRequires:	cmake >= 2.8.6
