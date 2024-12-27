@@ -62,4 +62,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/liblucene++-contrib.so
 %{_pkgconfigdir}/liblucene++.pc
 %{_pkgconfigdir}/liblucene++-contrib.pc
-%{_libdir}/cmake/liblucene++*.cmake
+%{_libdir}/cmake/liblucene++
+%{_libdir}/cmake/liblucene++-contrib
