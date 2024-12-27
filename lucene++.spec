@@ -1,15 +1,12 @@
 Summary:	A high-performance, full-featured text search engine written in C++
 Name:		lucene++
-Version:	3.0.8
-Release:	2
+Version:	3.0.9
+Release:	1
 License:	Apache v2.0 or LGPLv3+
 Group:		Libraries
 Source0:	https://github.com/luceneplusplus/LucenePlusPlus/archive/rel_%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	cb9b2e7cb37b7dd68c1e24a65c6eda9d
-Patch0:		stdc++.patch
-Patch1:		contrib-soversion.patch
-Patch2:		config-install.patch
-Patch3:		pkgconfig.patch
+# Source0-md5:	33da6751de47523e22e7a1beebd78c29
+Patch4:		boost-1.85.patch
 URL:		https://github.com/luceneplusplus/LucenePlusPlus
 BuildRequires:	boost-devel
 BuildRequires:	cmake >= 2.8.6
@@ -32,10 +29,7 @@ search engine written in C++
 
 %prep
 %setup -q -n LucenePlusPlus-rel_%{version}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
+%patch -P 0 -p1
 
 %build
 mkdir -p build
