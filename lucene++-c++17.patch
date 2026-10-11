@@ -1,0 +1,40 @@
+From 6e678a9588a5828172bac71c713f6eed6cb0570d Mon Sep 17 00:00:00 2001
+From: Gianfranco Costamagna <locutusofborg@debian.org>
+Date: Mon, 8 Sep 2025 15:05:58 +0200
+Subject: [PATCH] Bump minimum std-version to 17, fixing FTBFS with new gcc-15
+ and googletest
+
+---
+ CMakeLists.txt                | 2 +-
+ src/test/gtest/CMakeLists.txt | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 280d74a6..3677c6d5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -47,7 +47,7 @@ include(dependencies)
+ include(Lucene++Docs)
+ 
+ # Enable C++11
+-set(CMAKE_CXX_STANDARD 11)
++set(CMAKE_CXX_STANDARD 17)
+ set(CMAKE_CXX_STANDARD_REQUIRED ON)
+ 
+ ####################################
+diff --git a/src/test/gtest/CMakeLists.txt b/src/test/gtest/CMakeLists.txt
+index 41b50f64..a451d0b6 100644
+--- a/src/test/gtest/CMakeLists.txt
++++ b/src/test/gtest/CMakeLists.txt
+@@ -11,9 +11,9 @@ project(googletest-distribution)
+ set(GOOGLETEST_VERSION 1.10.0)
+ 
+ if (CMAKE_VERSION VERSION_LESS "3.1")
+-  add_definitions(-std=c++11)
++  add_definitions(-std=c++17)
+ else()
+-  set(CMAKE_CXX_STANDARD 11)
++  set(CMAKE_CXX_STANDARD 17)
+   set(CMAKE_CXX_STANDARD_REQUIRED ON)
+   if(NOT CYGWIN)
+     set(CMAKE_CXX_EXTENSIONS OFF)

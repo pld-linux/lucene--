@@ -9,10 +9,15 @@ Group:		Libraries
 Source0:	https://github.com/luceneplusplus/LucenePlusPlus/archive/rel_%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	33da6751de47523e22e7a1beebd78c29
 Patch0:		boost-1.85.patch
+Patch1:		%{name}-boost-asio-update.patch
+Patch2:		%{name}-swap-typos.patch
+Patch3:		%{name}-c++17.patch
 URL:		https://github.com/luceneplusplus/LucenePlusPlus
 BuildRequires:	boost-devel
-BuildRequires:	cmake >= 2.8.6
+BuildRequires:	cmake >= 3.5
+BuildRequires:	libstdc++-devel >= 6:7
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	subversion
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,6 +35,7 @@ Summary:	Development files for lucene++
 Summary(pl.UTF-8):	Pliki programistyczne lucene++
 Group:		Development/Libraries
 Requires:	%{name}%{?_isa} = %{version}-%{release}
+Requires:	libstdc++-devel >= 6:7
 
 %description devel
 Development files for lucene++, a high-performance, full-featured text
@@ -41,7 +47,10 @@ funkcjonalnego silnika wyszukiwania pełnotekstowego.
 
 %prep
 %setup -q -n LucenePlusPlus-rel_%{version}
-%patch -P 0 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 
 %build
 mkdir -p build
