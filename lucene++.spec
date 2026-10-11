@@ -1,9 +1,11 @@
 Summary:	A high-performance, full-featured text search engine written in C++
+Summary(pl.UTF-8):	Bardzo wydajny, w pełni funkcjonalny silnik wyszukiwania pełnotekstowego w C++
 Name:		lucene++
 Version:	3.0.9
 Release:	1
 License:	Apache v2.0 or LGPLv3+
 Group:		Libraries
+#Source0Download: https://github.com/luceneplusplus/LucenePlusPlus/tags
 Source0:	https://github.com/luceneplusplus/LucenePlusPlus/archive/rel_%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	33da6751de47523e22e7a1beebd78c29
 Patch0:		boost-1.85.patch
@@ -18,14 +20,24 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 An up to date C++ port of the popular Java Lucene library, a
 high-performance, full-featured text search engine.
 
+%description -l pl.UTF-8
+Port do aktualnego C++ popularnej biblioteki Javy Lucene - bardzo
+wydajnego, w pełni funkcjonalnego silnika wyszukiwania
+pełnotekstowego.
+
 %package devel
 Summary:	Development files for lucene++
+Summary(pl.UTF-8):	Pliki programistyczne lucene++
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 Development files for lucene++, a high-performance, full-featured text
 search engine written in C++
+
+%description devel -l pl.UTF-8
+Pliki programistyczne lucene++ - bardzo wydajnego, w pełni
+funkcjonalnego silnika wyszukiwania pełnotekstowego.
 
 %prep
 %setup -q -n LucenePlusPlus-rel_%{version}
@@ -36,6 +48,7 @@ mkdir -p build
 cd build
 %cmake .. \
 	-DENABLE_TEST:BOOL=OFF
+
 %{__make}
 
 %install
@@ -50,16 +63,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING README* REQUESTS
-%{_libdir}/liblucene++.so.0
 %{_libdir}/liblucene++.so.*.*.*
-%{_libdir}/liblucene++-contrib.so.0
+%ghost %{_libdir}/liblucene++.so.0
 %{_libdir}/liblucene++-contrib.so.*.*.*
+%ghost %{_libdir}/liblucene++-contrib.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/lucene++/
 %{_libdir}/liblucene++.so
 %{_libdir}/liblucene++-contrib.so
+%{_includedir}/lucene++
 %{_pkgconfigdir}/liblucene++.pc
 %{_pkgconfigdir}/liblucene++-contrib.pc
 %{_libdir}/cmake/liblucene++
