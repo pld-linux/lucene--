@@ -2,7 +2,7 @@ Summary:	A high-performance, full-featured text search engine written in C++
 Summary(pl.UTF-8):	Bardzo wydajny, w pełni funkcjonalny silnik wyszukiwania pełnotekstowego w C++
 Name:		lucene++
 Version:	3.0.9
-Release:	1
+Release:	2
 License:	Apache v2.0 or LGPLv3+
 Group:		Libraries
 #Source0Download: https://github.com/luceneplusplus/LucenePlusPlus/tags
@@ -55,7 +55,9 @@ funkcjonalnego silnika wyszukiwania pełnotekstowego.
 %build
 mkdir -p build
 cd build
+# .pc file generation expects relative CMAKE_INSTALL_LIBDIR
 %cmake .. \
+	-DCMAKE_INSTALL_LIBDIR:PATH=%{_lib} \
 	-DENABLE_TEST:BOOL=OFF
 
 %{__make}
